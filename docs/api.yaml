@@ -29,13 +29,24 @@ components:
     PollutionData:
       type: object
       properties:
-        ts:
-          type: string
-        aqius:
-          type: number
-        mainus:
-          type: string
-        aqicn:
-          type: number
-        maincn:
-          type: string
+        Result:
+          type: object
+          properties:
+            Pollution:
+              type: object
+              properties:
+                ts:
+                  type: string
+                  example: "2024-02-02T15:33:19Z"
+                aqius:
+                  type: number
+                  example: 42
+                mainus:
+                  type: string
+                  example: "p2"
+                aqicn:
+                  type: number
+                  example: 20
+                maincn:
+                  type: string
+                  example: "pm25"
