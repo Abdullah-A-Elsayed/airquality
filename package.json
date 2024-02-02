@@ -4,7 +4,7 @@
   "description": "know about air pollution of the nearest city using lat and long",
   "main": "src/server/index.ts",
   "scripts": {
-    "start": "env-cmd -f .env nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server/index.ts",
+    "dev": "env-cmd -f .env nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server/index.ts",
     "build": "tsc",
     "test": "jest",
     "generate-docs": "npx @redocly/cli build-docs docs/api.yaml -o docs/output/index.html"
