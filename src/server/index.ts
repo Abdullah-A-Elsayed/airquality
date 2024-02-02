@@ -2,15 +2,17 @@ import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import * as OpenApiValidator from "express-openapi-validator";
 import { routes } from "./controllers/v1/PollutionController";
+import swaggerUi from "swagger-ui-express";
+import yamljs from "yamljs";
 
 const app = express();
 const port = 3000;
-const apiSpec = path.join(__dirname, "api.yaml");
+const apiSpec = path.join("docs", "api.yaml");
+const swaggerDocument = yamljs.load(apiSpec);
 
 app.use(express.json());
-app.use("/spec", express.static(apiSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(OpenApiValidator.middleware({ apiSpec }));
-
 app.use("/v1/pollution", routes);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
