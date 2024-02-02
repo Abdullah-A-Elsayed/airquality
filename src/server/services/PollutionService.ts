@@ -15,7 +15,7 @@ export class PollutionService {
         `${baseUrl}nearest_city?lat=${latitude}&lon=${longitude}&key=${AIR_VISUAL_API_KEY}`
       )
     ).data;
-    console.log(response.data);
+    // console.log(response.data);
     const { ts, aqicn, maincn, aqius, mainus } =
       response.data.current.pollution;
     return {
