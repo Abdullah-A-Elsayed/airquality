@@ -15,7 +15,7 @@ app.use(OpenApiValidator.middleware({ apiSpec }));
 app.use("/v1/pollution", PollutionRouter);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.log(err);
+  if (process.env.NODE_ENV !== "test") console.log(err);
   res.status(err.status || 500).json({
     message: err.message,
     errors: err.errors,
