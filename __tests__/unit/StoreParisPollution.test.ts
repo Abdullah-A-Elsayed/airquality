@@ -19,6 +19,9 @@ PollutionService.prototype.getPollutionData = mockGetPollutionData;
 const prismaCreatePollutionSpy = jest.spyOn(prisma.pollution, "create");
 
 describe("storeParisPollution", () => {
+  beforeAll(async () => {
+    prisma.pollution.deleteMany();
+  });
   it("should fetch pollution data and store it in the database", async () => {
     const pollutionService = new PollutionService();
     await storeParisPollution(pollutionService);
