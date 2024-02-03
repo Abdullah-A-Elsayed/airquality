@@ -24,6 +24,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PollutionData"
+        "400":
+          description: Bad Request
+        "500":
+          description: An error occurred while retrieving the data
+
+  /v1/pollution/paris/max:
+    get:
+      summary: Get the time when the pollution was at its highest level in Paris
+      responses:
+        "200":
+          description: A JSON object containing the date and time of the highest pollution level
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PollutionMaxResponse"
+        "404":
+          description: No pollution data found for Paris
+        "500":
+          description: An error occurred while retrieving the data
 components:
   schemas:
     PollutionData:
@@ -50,3 +69,13 @@ components:
                 maincn:
                   type: string
                   example: "pm25"
+    PollutionMaxResponse:
+      type: object
+      properties:
+        Result:
+          type: object
+          properties:
+            Datetime:
+              type: string
+              format: date-time
+              example: "2024-02-02T15:33:19Z"
