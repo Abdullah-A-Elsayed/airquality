@@ -39,4 +39,8 @@ describe("storeParisPollution", () => {
       },
     });
   });
+  afterAll(async () => {
+    // Clean up the database
+    await prisma.pollution.deleteMany();
+  });
 });
