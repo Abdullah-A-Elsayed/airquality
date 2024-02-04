@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import * as OpenApiValidator from "express-openapi-validator";
-import { PollutionRouter } from "./controllers/v1/PollutionController";
+import PollutionRouter from "./routes/PollutionRouter";
 import swaggerUi from "swagger-ui-express";
 import yamljs from "yamljs";
 
