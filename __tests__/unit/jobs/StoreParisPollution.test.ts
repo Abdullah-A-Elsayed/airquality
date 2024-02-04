@@ -1,10 +1,10 @@
-import { PollutionService } from "../../src/server/services/PollutionService";
-import { storeParisPollution } from "../../src/jobs/handlers/index";
-import { PARIS_COORDINATES } from "../../src/utils/constants";
-import prisma from "../../src/lib/db";
+import { PollutionService } from "../../../src/server/services/PollutionService";
+import { storeParisPollution } from "../../../src/jobs/handlers/index";
+import { PARIS_COORDINATES } from "../../../src/utils/constants";
+import prisma from "../../../src/lib/db";
 
 // mocking external service
-jest.mock("../../src/server/services/PollutionService");
+jest.mock(".../../../src/server/services/PollutionService");
 const samplePollutionData = {
   ts: "2024-02-02T12:00:00.000Z",
   aqius: 50,
