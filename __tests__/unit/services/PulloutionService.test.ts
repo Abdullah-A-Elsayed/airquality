@@ -1,4 +1,4 @@
-import { PollutionService } from "../../src/server/services/PollutionService";
+import { PollutionService } from "../../../src/server/services/PollutionService";
 import axios from "axios";
 const AIR_VISUAL_API_KEY =
   process.env.AIR_VISUAL_API_KEY || "c8b660de-77aa-4fdd-8786-6e105ef4dc38";
